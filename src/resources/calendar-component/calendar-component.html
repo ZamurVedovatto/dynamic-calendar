@@ -4,7 +4,20 @@
   <div class="calendar-wrapper">
     <button id="btnPrev" type="button" click.delegate="previousMonth()">Anterior</button>
     <button id="btnNext" type="button" click.delegate="nextMonth()">Próximo</button>
-    <div    innerhtml.bind="htmlCalendar"></div>
+
+    <div class="mt-4">
+      <table>
+        <thead>
+          <tr>
+            <td colspan="7">${monthYearString}</td>
+          </tr>
+        </thead>
+        <tr class="days">
+          <td repeat.for="weekday of daysOfWeek">${weekday}</td>
+        </tr>
+        <tbody innerhtml.bind="rowsDays"></tbody>
+      </table>
+    </div>
   </div>
 
 </template>

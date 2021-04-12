@@ -19,8 +19,7 @@
 
 export class CalendarComponent {
 
-  //Store div id
-  htmlCalendar;
+
   // Days of week, starting on Sunday
   daysOfWeek = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"];
 
@@ -54,24 +53,15 @@ export class CalendarComponent {
   };
 
   showMonth(y, m) {
-    let firstDayOfMonth = new Date(y, m, 1).getDay(); // First day of the week in the selected month
-    let lastDateOfMonth = new Date(y, m + 1, 0).getDate(); // Last day of the selected month
-    let lastDayOfLastMonth = m == 0 ? new Date(y - 1, 11, 0).getDate() : new Date(y, m, 0).getDate(); // Last day of the previous month
+    this.monthYearString = `${this.monthsList[m]} ${y}`
+
+    let firstDayOfMonth = new Date(y, m, 1).getDay();
+    let lastDateOfMonth = new Date(y, m + 1, 0).getDate();
+    let lastDayOfLastMonth = m == 0 ? new Date(y - 1, 11, 0).getDate() : new Date(y, m, 0).getDate();
   
-    let html = "<table>";
-  
-    // Write selected month and year
-    html += "<thead><tr>";
-    html += '<td colspan="7">' + this.monthsList[m] + " " + y + "</td>";
-    html += "</tr></thead>";
-  
-    // Write the header of the days of the week
-    html += '<tr class="days">';
-    for (let i = 0; i < this.daysOfWeek.length; i++) {
-      html += "<td>" + this.daysOfWeek[i] + "</td>";
-    }
-    html += "</tr>";
-  
+    this.rowsDays = "";
+
+
     // Write the days
     let i = 1;
     do {
@@ -79,15 +69,15 @@ export class CalendarComponent {
   
       // If Sunday, start new row
       if (dow == 0) {
-        html += "<tr>";
+        this.rowsDays += "<tr>";        
       }
       // If not Sunday but first day of the month
       // it will write the last days from the previous month
       else if (i == 1) {
-        html += "<tr>";
+        this.rowsDays += "<tr>";
         let k = lastDayOfLastMonth - firstDayOfMonth + 1;
         for (let j = 0; j < firstDayOfMonth; j++) {
-          html += '<td class="not-current">' + k + "</td>";
+          this.rowsDays += '<td class="not-current">' + k + "</td>";
           k++;
         }
       }
@@ -97,35 +87,30 @@ export class CalendarComponent {
       let chkY = chk.getFullYear();
       let chkM = chk.getMonth();
       if (chkY == this.currYear && chkM == this.currMonth && i == this.currDay) {
-        html += '<td class="today">' + i + "</td>";
+        this.rowsDays += '<td class="today">' + i + "</td>";
       } else {
-        html += '<td class="normal">' + i + "</td>";
+        this.rowsDays += '<td class="normal">' + i + "</td>";
       }
       // If Saturday, closes the row
       if (dow == 6) {
-        html += "</tr>";
+        this.rowsDays += "</tr>";
       }
+      
       // If not Saturday, but last day of the selected month
       // it will write the next few days from the next month
       else if (i == lastDateOfMonth) {
         let k = 1;
         for (dow; dow < 6; dow++) {
-          html += '<td class="not-current">' + k + "</td>";
+          this.rowsDays += '<td class="not-current">' + k + "</td>";
           k++;
         }
       }
-  
       i++;
     } while (i <= lastDateOfMonth);
   
-    // Closes table
-    html += "</table>";
-
-    this.htmlCalendar = html;
   };
     
   
-  // Goes to next month
   nextMonth() {
     if (this.currMonth == 11) {
       this.currMonth = 0;
@@ -136,7 +121,6 @@ export class CalendarComponent {
     this.showcurr();
   };
   
-  // Goes to previous month
   previousMonth() {
     if (this.currMonth == 0) {
       this.currMonth = 11;
