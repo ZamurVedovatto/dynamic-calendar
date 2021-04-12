@@ -62,10 +62,8 @@ export class CalendarComponent {
     this.rowsDays = "";
 
 
-    // Write the days
-    let i = 1;
-    do {
-      let dow = new Date(y, m, i).getDay();
+    for (let index = 1; index  <= lastDateOfMonth; index++) {
+      let dow = new Date(y, m, index).getDay();
   
       // If Sunday, start new row
       if (dow == 0) {
@@ -73,7 +71,7 @@ export class CalendarComponent {
       }
       // If not Sunday but first day of the month
       // it will write the last days from the previous month
-      else if (i == 1) {
+      else if (index == 1) {
         this.rowsDays += "<tr>";
         let k = lastDayOfLastMonth - firstDayOfMonth + 1;
         for (let j = 0; j < firstDayOfMonth; j++) {
@@ -86,10 +84,10 @@ export class CalendarComponent {
       let chk = new Date();
       let chkY = chk.getFullYear();
       let chkM = chk.getMonth();
-      if (chkY == this.currYear && chkM == this.currMonth && i == this.currDay) {
-        this.rowsDays += '<td class="today">' + i + "</td>";
+      if (chkY == this.currYear && chkM == this.currMonth && index == this.currDay) {
+        this.rowsDays += '<td class="today">' + index + "</td>";
       } else {
-        this.rowsDays += '<td class="normal">' + i + "</td>";
+        this.rowsDays += '<td class="normal">' + index + "</td>";
       }
       // If Saturday, closes the row
       if (dow == 6) {
@@ -98,15 +96,59 @@ export class CalendarComponent {
       
       // If not Saturday, but last day of the selected month
       // it will write the next few days from the next month
-      else if (i == lastDateOfMonth) {
+      else if (index == lastDateOfMonth) {
         let k = 1;
         for (dow; dow < 6; dow++) {
           this.rowsDays += '<td class="not-current">' + k + "</td>";
           k++;
         }
       }
-      i++;
-    } while (i <= lastDateOfMonth);
+    }
+
+
+
+
+
+    // Write the days
+    // let i = 1;
+    // do {
+    //   let dow = new Date(y, m, i).getDay();
+  
+    //   if (dow == 0) {
+    //     this.rowsDays += "<tr>";        
+    //   }
+
+    //   else if (i == 1) {
+    //     this.rowsDays += "<tr>";
+    //     let k = lastDayOfLastMonth - firstDayOfMonth + 1;
+    //     for (let j = 0; j < firstDayOfMonth; j++) {
+    //       this.rowsDays += '<td class="not-current">' + k + "</td>";
+    //       k++;
+    //     }
+    //   }
+  
+    //   let chk = new Date();
+    //   let chkY = chk.getFullYear();
+    //   let chkM = chk.getMonth();
+    //   if (chkY == this.currYear && chkM == this.currMonth && i == this.currDay) {
+    //     this.rowsDays += '<td class="today">' + i + "</td>";
+    //   } else {
+    //     this.rowsDays += '<td class="normal">' + i + "</td>";
+    //   }
+
+    //   if (dow == 6) {
+    //     this.rowsDays += "</tr>";
+    //   }
+      
+    //   else if (i == lastDateOfMonth) {
+    //     let k = 1;
+    //     for (dow; dow < 6; dow++) {
+    //       this.rowsDays += '<td class="not-current">' + k + "</td>";
+    //       k++;
+    //     }
+    //   }
+    //   i++;
+    // } while (i <= lastDateOfMonth);
   
   };
     
