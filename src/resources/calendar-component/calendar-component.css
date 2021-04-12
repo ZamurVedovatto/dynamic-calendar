@@ -2,91 +2,8 @@
   --month-name-color: #4169E1; 
   --today-color: #28283b;
   --today-background-color: #FFFADF;
-  --border-color: #dcdcff;
+  --border-color: #ebedf3;
 }
-
-.calendar-wrapper {
-  width: 100%;
-  margin: 0 auto;
-  padding: 1rem;
-  border: 1px solid var(--border-color);
-  border-radius: 5px;
-  background: #fff;
-}
-table {
-  clear: both;
-  width: 100%;
-  border: 1px solid var(--border-color);
-  border-radius: 3px;
-  border-collapse: collapse;
-  color: #3F4254;
-}
-tbody {}
-tbody tr {}
-tbody tr.days {}
-tbody tr.days td {
-  font-weight: bold;
-  font-size: .875rem;
-}
-td {
-  height: 48px;
-  text-align: center;
-  vertical-align: middle;
-  border-right: 1px solid var(--border-color);
-  border-top: 1px solid var(--border-color);
-  width: 14.28571429%;
-}
-td.not-current {
-  color: #c0c0c0;
-}
-td.today {
-  font-weight: 500;
-  color: var(--today-color);
-  background-color: var(--today-background-color);
-}
-thead td {
-  border: none;
-  color: var(--month-name-color);
-  font-size: 1rem;
-  text-transform: uppercase;
-  font-weight: bold;
-}
-#btnPrev {
-  float: left;
-  margin-bottom: 2px;
-}
-#btnPrev:before {
-  content: '\f104';
-  font-family: FontAwesome;
-  padding-right: 4px;
-}
-#btnNext {
-  float: right;
-  margin-bottom: 2px;
-}
-#btnNext:after {
-  content: '\f105';
-  font-family: FontAwesome;
-  padding-left: 4px;
-}
-#btnPrev,
-#btnNext {
-  background: transparent;
-  border: none;
-  outline: none;
-  font-size: 1em;
-  color: #c0c0c0;
-  cursor: pointer;
-  font-family: "Roboto Condensed", sans-serif;
-  text-transform: uppercase;
-  transition: all 0.3s ease;
-}
-#btnPrev:hover,
-#btnNext:hover {
-  color: #28283b;
-  font-weight: bold;
-}
-
 
 .status-1 {
   color: #F64E60;
@@ -108,4 +25,86 @@ thead td {
 .status-5 {
   color: #8950FC;
   background-color: #EEE5FF;
+}
+
+
+
+
+.calendar-wrapper {
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem;
+  background: #fff;
+}
+.calendar-wrapper table {
+  clear: both;
+  width: 100%;
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  border-collapse: collapse;
+  color: #3F4254;
+}
+.calendar-wrapper tbody {}
+.calendar-wrapper tbody tr {}
+.calendar-wrapper tbody tr.days {}
+.calendar-wrapper tbody tr.days td {
+  font-weight: bold;
+  font-size: 1em;
+}
+.calendar-wrapper td {
+  height: 48px;
+  text-align: center;
+  vertical-align: middle;
+  border-right: 2px solid var(--border-color);
+  border-top: 2px solid var(--border-color);
+  width: 14.28571429%;
+}
+.calendar-wrapper td.not-current {
+  color: #c0c0c0;
+}
+.calendar-wrapper td.today {
+  font-weight: 500;
+  color: var(--today-color);
+  background-color: var(--today-background-color);
+}
+.calendar-wrapper thead td {
+  border: none;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background-color: #5f75b6;
+  color: white;
+}
+.calendar-wrapper #btnPrev {
+  float: left;
+  margin-bottom: 2px;
+}
+.calendar-wrapper #btnPrev:before {
+  content: '\f104';
+  font-family: FontAwesome;
+  padding-right: 4px;
+}
+.calendar-wrapper #btnNext {
+  float: right;
+  margin-bottom: 2px;
+}
+.calendar-wrapper #btnNext:after {
+  content: '\f105';
+  font-family: FontAwesome;
+  padding-left: 4px;
+}
+.calendar-wrapper #btnPrev,
+.calendar-wrapper #btnNext {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1.25em;
+  cursor: pointer;
+  font-family: "Roboto Condensed", sans-serif;
+  transition: all 0.3s ease;
+  color: slategrey;
+}
+.calendar-wrapper #btnPrev:hover,
+.calendar-wrapper #btnNext:hover {
+  color: #5f75b6;
 }
