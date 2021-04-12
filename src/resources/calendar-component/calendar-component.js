@@ -1,7 +1,5 @@
 // https://preview.keenthemes.com/metronic/demo1/index.html
-
 // {
-
 //   inicio:16/07/1982,
 //   termino:16/10/1982,
 //   dias:[
@@ -22,13 +20,12 @@
 export class CalendarComponent {
 
   //Store div id
-  divId;
   htmlCalendar;
   // Days of week, starting on Sunday
-  DaysOfWeek = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"];
+  daysOfWeek = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"];
 
-  // Months, stating on January
-  Months = [
+  // monthsList, stating on January
+  monthsList = [
     "Janeiro",
     "Fevereiro",
     "Março",
@@ -47,62 +44,31 @@ export class CalendarComponent {
   currMonth = new Date().getMonth();
   currYear = new Date().getFullYear();
   currDay = new Date().getDate();
-  
 
-  attached() {
-    console.log(this.divId);
+  constructor() {
     this.showcurr();
   }
-  
-  // Goes to next month
-  nextMonth() {
-    if (this.currMonth == 11) {
-      this.currMonth = 0;
-      this.currYear = this.currYear + 1;
-    } else {
-      this.currMonth = this.currMonth + 1;
-    }
-    this.showcurr();
-  };
-  
-  // Goes to previous month
-  previousMonth() {
-    if (this.currMonth == 0) {
-      this.currMonth = 11;
-      this.currYear = this.currYear - 1;
-    } else {
-      this.currMonth = this.currMonth - 1;
-    }
-    this.showcurr();
-  };
-  
-  // Show current month
+
   showcurr() {
     this.showMonth(this.currYear, this.currMonth);
   };
-  
-  // Show month (year, month)
-  showMonth(y, m) {
-    // let d = new Date();
 
-    // First day of the week in the selected month
-    let firstDayOfMonth = new Date(y, m, 1).getDay();
-    // Last day of the selected month
-    let lastDateOfMonth = new Date(y, m + 1, 0).getDate();
-    // Last day of the previous month
-    let lastDayOfLastMonth = m == 0 ? new Date(y - 1, 11, 0).getDate() : new Date(y, m, 0).getDate();
+  showMonth(y, m) {
+    let firstDayOfMonth = new Date(y, m, 1).getDay(); // First day of the week in the selected month
+    let lastDateOfMonth = new Date(y, m + 1, 0).getDate(); // Last day of the selected month
+    let lastDayOfLastMonth = m == 0 ? new Date(y - 1, 11, 0).getDate() : new Date(y, m, 0).getDate(); // Last day of the previous month
   
     let html = "<table>";
   
     // Write selected month and year
     html += "<thead><tr>";
-    html += '<td colspan="7">' + this.Months[m] + " " + y + "</td>";
+    html += '<td colspan="7">' + this.monthsList[m] + " " + y + "</td>";
     html += "</tr></thead>";
   
     // Write the header of the days of the week
     html += '<tr class="days">';
-    for (let i = 0; i < this.DaysOfWeek.length; i++) {
-      html += "<td>" + this.DaysOfWeek[i] + "</td>";
+    for (let i = 0; i < this.daysOfWeek.length; i++) {
+      html += "<td>" + this.daysOfWeek[i] + "</td>";
     }
     html += "</tr>";
   
@@ -156,14 +122,28 @@ export class CalendarComponent {
     html += "</table>";
 
     this.htmlCalendar = html;
-  
-    // Write HTML to the div
-    // document.getElementById(this.divId).innerHTML = html;
   };
     
-  // // Get element by id
-  // getId(id) {
-  //   return document.getElementById(id);
-  // }
   
+  // Goes to next month
+  nextMonth() {
+    if (this.currMonth == 11) {
+      this.currMonth = 0;
+      this.currYear = this.currYear + 1;
+    } else {
+      this.currMonth = this.currMonth + 1;
+    }
+    this.showcurr();
+  };
+  
+  // Goes to previous month
+  previousMonth() {
+    if (this.currMonth == 0) {
+      this.currMonth = 11;
+      this.currYear = this.currYear - 1;
+    } else {
+      this.currMonth = this.currMonth - 1;
+    }
+    this.showcurr();
+  };
 }

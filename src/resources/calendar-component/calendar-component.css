@@ -52,15 +52,17 @@
   font-size: 1em;
 }
 .calendar-wrapper td {
-  height: 48px;
+  height: 3.5rem;
   text-align: center;
   vertical-align: middle;
   border-right: 2px solid var(--border-color);
   border-top: 2px solid var(--border-color);
   width: 14.28571429%;
+  font-size: 1rem;
 }
 .calendar-wrapper td.not-current {
-  color: #c0c0c0;
+  color: #bfbbbb;
+  font-size: .85rem;
 }
 .calendar-wrapper td.today {
   font-weight: 500;
