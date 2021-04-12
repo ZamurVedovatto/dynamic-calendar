@@ -6,9 +6,9 @@
 }
 
 .calendar-wrapper {
-  width: 360px;
-  margin: 3em auto;
-  padding: 2em;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem;
   border: 1px solid var(--border-color);
   border-radius: 5px;
   background: #fff;
@@ -19,7 +19,7 @@ table {
   border: 1px solid var(--border-color);
   border-radius: 3px;
   border-collapse: collapse;
-  color: #444;
+  color: #3F4254;
 }
 tbody {}
 tbody tr {}
@@ -85,4 +85,27 @@ thead td {
 #btnNext:hover {
   color: #28283b;
   font-weight: bold;
+}
+
+
+.status-1 {
+  color: #F64E60;
+  background-color: #FFE2E5;
+}
+
+.status-2 {
+  color: #3699FF;
+  background-color: #E1F0FF;
+}
+.status-3 {
+  color: #FFA800;
+  background-color: #FFF4DE;
+}
+.status-4 {
+  color: #1BC5BD;
+  background-color: #C9F7F5;
+}
+.status-5 {
+  color: #8950FC;
+  background-color: #EEE5FF;
 }

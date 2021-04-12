@@ -1,3 +1,22 @@
+// https://preview.keenthemes.com/metronic/demo1/index.html
+
+// {
+
+//   inicio:16/07/1982,
+//   termino:16/10/1982,
+//   dias:[
+//       data:{dia:20/07/1982, tipo:1, habilitado:false},
+//       data:{dia:21/07/1982, tipo:1, habilitado:false},
+//       data:{dia:22/07/1982, tipo:1, habilitado:false}
+//        ]
+//   }
+  
+//   1 - legenda
+//   2 - navegacao dos meses
+//   3 - desabilitar o dia tem aparecer
+//   4 - ao clicar abre alguma coisa 
+//   5 - nao deixar os meses voltarem ou irem alem das datas.
+
 // https://codepen.io/xmark/pen/WQaXdv
 
 export class CalendarComponent {

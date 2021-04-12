@@ -1,13 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
 html,
 body {
-  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  background-image: url("https://eadligth.com.br/new3/media/bg/bg-3.jpg");
+  background-size: cover;
 }
 body {
+  width: 100%;
+  height: 100vh;
   font-size: 100%;
   line-height: 1.5;
-  font-family: 'Roboto', sans-serif;
-  background: #28283b;
-  background-image: linear-gradient(#28283b 0%, #0f0f17 100%);
   color: #444;
 }
 *,
