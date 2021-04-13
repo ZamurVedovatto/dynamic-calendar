@@ -49,23 +49,30 @@
 }
 .calendar-wrapper tbody {}
 .calendar-wrapper tbody tr {}
-.calendar-wrapper tbody tr.days {}
+.calendar-wrapper tbody tr.days {
+  background-color: #6076b6;
+  color: white;
+}
 .calendar-wrapper tbody tr.days td {
-  font-weight: bold;
+  font-weight: 300;
   font-size: 1em;
+  text-transform: uppercase;
+  height: 28px;
+  border: none;
 }
 .calendar-wrapper td {
-  height: 3.5rem;
+  height: 4rem;
   text-align: center;
   vertical-align: middle;
   border-right: 2px solid var(--border-color);
   border-top: 2px solid var(--border-color);
   width: 14.28571429%;
-  font-size: 1rem;
+  font-size: 1.25rem;
+  font-weight: 300;
 }
 .calendar-wrapper td.not-current {
   color: #bfbbbb;
-  font-size: .85rem;
+  font-size: 1rem;
 }
 .calendar-wrapper td.today {
   font-weight: 500;
@@ -79,6 +86,9 @@
   letter-spacing: 2px;
   background-color: #5f75b6;
   color: white;
+  font-weight: bold;
+  height: 3.2rem;
+  vertical-align: bottom;
 }
 .calendar-wrapper #btnPrev {
   float: left;

@@ -47,7 +47,7 @@ export class CalendarComponent {
       let newDay = {}
       newDay.month = m;
       newDay.year = y;
-      newDay.classes = []
+      newDay.classes = ""
 
       let dayOfWeek = new Date(y, m, index).getDay();  
       // If Sunday, start new row
@@ -64,8 +64,8 @@ export class CalendarComponent {
           newDay.day = k
           newDay.month = "prev"
           newDay.year = y
-          newDay.classes = []
-          newDay.classes.push("not-current")
+          newDay.classes = ""
+          newDay.classes += "not-current"
           this.lastMonthDays.push(newDay)
           k++;
         }
@@ -74,7 +74,7 @@ export class CalendarComponent {
       newDay = {}
       newDay.month = m;
       newDay.year = y;
-      newDay.classes = []
+      newDay.classes = ""
 
       // Write the current day in the loop
       let chk = new Date();
@@ -82,11 +82,18 @@ export class CalendarComponent {
       let chkM = chk.getMonth();
       if (chkY == this.currYear && chkM == this.currMonth && index == this.currDay) {
         newDay.day = index
-        newDay.classes.push("today")
+        newDay.classes += "today"
         newWeek.push(newDay)
       } else {
         newDay.day = index
-        newDay.classes.push("normal")
+        newDay.classes += "normal"
+
+        if (index === 5)  newDay.classes += " status-1"
+        if (index === 8)  newDay.classes += " status-2"
+        if (index === 15)  newDay.classes += " status-3"
+        if (index === 20)  newDay.classes += " status-4"
+        if (index === 23)  newDay.classes += " status-5"
+
         newWeek.push(newDay)
       }
       // If Saturday, closes the row
@@ -103,8 +110,8 @@ export class CalendarComponent {
           newDay.month = "next"
           newDay.year = y;
           newDay.day = k
-          newDay.classes = []
-          newDay.classes.push("not-current")
+          newDay.classes = ""
+          newDay.classes += "not-current"
           this.nextMonthDays.push(newDay)
           k++;
         }
