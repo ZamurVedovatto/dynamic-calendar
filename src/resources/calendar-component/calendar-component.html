@@ -15,9 +15,12 @@
         <tr class="days">
           <td repeat.for="weekday of daysOfWeek">${weekday}</td>
         </tr>
-        <tbody innerhtml.bind="rowsDays"></tbody>
+        <tbody>
+          <tr repeat.for="row of calendarRows">
+            <td repeat.for="item of row" class="${item.classes}">${item.day}</td>
+          </tr>
+        </tbody>
       </table>
     </div>
   </div>
-
 </template>
