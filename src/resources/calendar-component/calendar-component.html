@@ -2,8 +2,8 @@
   <require from="./calendar-component.css"></require>
   
   <div class="calendar-wrapper">
-    <button id="btnPrev" type="button" click.delegate="previousMonth()">Anterior</button>
-    <button id="btnNext" type="button" click.delegate="nextMonth()">Próximo</button>
+    <button class="btn-nav" id="btnPrev" disabled.bind="disablePrev" type="button" click.delegate="previousMonth()">Anterior</button>
+    <button class="btn-nav" id="btnNext" disabled.bind="disableNext" ref="btnNextEnabled" type="button" click.delegate="nextMonth()">Próximo</button>
     <table>
       <thead>
         <tr>
@@ -19,13 +19,22 @@
             repeat.for="day of row"
             class="${day.classes}"
             click.delegate="onSelectDay(day)"
-            >${day.day}</td>
+            >${day.day}
+            <span class="badge badge-light" show.bind="day.appointments > 0">${day.appointments}</span>
+          </td>
         </tr>
       </tbody>
     </table>
     
     <div class="mt-4">
-      <span>${selectedDay.day} ${selectedDay.month} ${selectedDay.year} ${selectedDay.classes}</span>
+      <!-- <span>${selectedDay.day} ${selectedDay.month} ${selectedDay.year} ${selectedDay.classes}</span> -->
+      <div class="labels">
+        <span class="label label-lg status-1 label-inline">Approved</span>
+        <span class="label label-lg status-2 label-inline">Approved</span>
+        <span class="label label-lg status-3 label-inline">Approved</span>
+        <span class="label label-lg status-4 label-inline">Approved</span>
+        <span class="label label-lg status-5 label-inline">Approved</span>
+      </div>
     </div>
   </div>
 </template>
