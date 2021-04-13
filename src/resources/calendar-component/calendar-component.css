@@ -13,20 +13,23 @@
 .status-2 {
   color: #3699FF;
   background-color: #E1F0FF;
+  border-color: #3699FF;
 }
 .status-3 {
   color: #FFA800;
   background-color: #FFF4DE;
+  border-color: #FFA800;
 }
 .status-4 {
   color: #1BC5BD;
   background-color: #C9F7F5;
+  border-color: #1BC5BD;
 }
 .status-5 {
   color: #8950FC;
   background-color: #EEE5FF;
+  border-color: #8950FC;
 }
-
 
 
 
