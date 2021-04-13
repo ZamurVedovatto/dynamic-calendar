@@ -33,12 +33,12 @@
 }
 
 
-
 .calendar-wrapper {
   width: 100%;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 0;
   background: #fff;
+  position: relative;
 }
 .calendar-wrapper table {
   clear: both;
@@ -72,11 +72,13 @@
   font-size: 1.25rem;
   font-weight: 300;
   transition: all 0.3s ease;
+  position: relative;
 }
 
 .calendar-wrapper td span.badge {
   position: absolute;
-  margin: -0.8rem 0.5rem 0 1rem;
+  top: .15rem;
+  right: .15rem;
   padding: .25rem 0.3rem .2rem 0.3rem;
   font-size: .75rem;
   background-color: #5f76ba;
@@ -120,6 +122,8 @@
   position: absolute;
   z-index: 9;
   font-size: 1.2rem;
+  display: flex;
+  align-items: center;
 }
 
 .btn-nav:hover {
@@ -132,26 +136,28 @@
 }
 
 .calendar-wrapper #btnPrev {
-  float: left;
+  position: absolute;
   margin-bottom: 2px;
-  left: 4rem;
-  top: 1.5rem;
+  left: 1.5rem;
+  top: 0;
 }
 .calendar-wrapper #btnPrev:before {
   content: '\f104';
   font-family: FontAwesome;
-  padding-right: 4px;
+  padding-right: 10px;
+  font-size: 2rem;
 }
 .calendar-wrapper #btnNext {
-  float: right;
+  position: absolute;
   margin-bottom: 2px;
-  right: 4rem;
-  top: 1.5rem;
+  right: 1.5rem;
+  top: 0;
 }
 .calendar-wrapper #btnNext:after {
   content: '\f105';
   font-family: FontAwesome;
-  padding-left: 4px;
+  padding-left: 10px;
+  font-size: 2rem;
 }
 
 .labels {
@@ -162,7 +168,63 @@
 }
 
 .labels span {
-  margin-bottom: .15rem;
+  margin-bottom: .25rem;
   min-width: 19%;
 }
 
+
+
+/* Responsividade */
+@media only screen and (max-width: 320px) {}
+@media only screen and (max-width: 420px) {
+  .calendar-wrapper {}
+  .calendar-wrapper table {}
+  .calendar-wrapper tbody {}
+  .calendar-wrapper tbody tr {}
+  .calendar-wrapper tbody tr.days {}
+  .calendar-wrapper tbody tr.days td {}
+  .calendar-wrapper td {
+    vertical-align: bottom;
+  }  
+  .calendar-wrapper td span.badge {}  
+  .calendar-wrapper td:not(.not-current):hover {}
+  .calendar-wrapper td.not-current {}
+  .calendar-wrapper td.today {}
+  .calendar-wrapper thead td {
+    font-size: 1.25rem;
+  }  
+  .btn-nav {}  
+  .btn-nav:hover {}  
+  .btn-nav:disabled {}  
+  .calendar-wrapper #btnPrev {}
+  .calendar-wrapper #btnPrev:before {}
+  .calendar-wrapper #btnNext {}
+  .labels {}  
+  .labels span {}
+}
+@media only screen and (max-width: 600px) {
+  .calendar-wrapper {}
+  .calendar-wrapper table {}
+  .calendar-wrapper tbody {}
+  .calendar-wrapper tbody tr {}
+  .calendar-wrapper tbody tr.days {}
+  .calendar-wrapper tbody tr.days td {}
+  .calendar-wrapper td {}  
+  .calendar-wrapper td span.badge {}  
+  .calendar-wrapper td:not(.not-current):hover {}
+  .calendar-wrapper td.not-current {}
+  .calendar-wrapper td.today {}
+  .calendar-wrapper thead td {}  
+  .btn-nav {}  
+  .btn-nav:hover {}  
+  .btn-nav:disabled {}  
+  .calendar-wrapper #btnPrev {}
+  .calendar-wrapper #btnPrev:before {}
+  .calendar-wrapper #btnNext {}
+  .labels {}  
+  .labels span {}
+}
+@media only screen and (max-width: 768px) {}
+@media only screen and (max-width: 992px) {}
+@media only screen and (max-width: 1260px) {}
+/* End Responsividade */
