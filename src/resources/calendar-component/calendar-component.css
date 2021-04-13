@@ -50,7 +50,7 @@
 .calendar-wrapper tbody {}
 .calendar-wrapper tbody tr {}
 .calendar-wrapper tbody tr.days {
-  background-color: #6076b6;
+  background-color: #6076b6ed;
   color: white;
 }
 .calendar-wrapper tbody tr.days td {
@@ -69,6 +69,12 @@
   width: 14.28571429%;
   font-size: 1.25rem;
   font-weight: 300;
+  transition: all 0.3s ease;
+}
+.calendar-wrapper td:not(.not-current):hover {
+  cursor: pointer;
+  background-color: #6076b6ed;
+  color: white;
 }
 .calendar-wrapper td.not-current {
   color: #bfbbbb;
@@ -81,18 +87,19 @@
 }
 .calendar-wrapper thead td {
   border: none;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   text-transform: uppercase;
   letter-spacing: 2px;
   background-color: #5f75b6;
   color: white;
-  font-weight: bold;
-  height: 3.2rem;
   vertical-align: bottom;
+  font-weight: 500;
 }
 .calendar-wrapper #btnPrev {
   float: left;
   margin-bottom: 2px;
+  left: 4rem;
+  top: 4.5rem;
 }
 .calendar-wrapper #btnPrev:before {
   content: '\f104';
@@ -102,6 +109,8 @@
 .calendar-wrapper #btnNext {
   float: right;
   margin-bottom: 2px;
+  right: 4rem;
+  top: 4.5rem;
 }
 .calendar-wrapper #btnNext:after {
   content: '\f105';
@@ -113,13 +122,15 @@
   background: transparent;
   border: none;
   outline: none;
-  font-size: 1.25em;
   cursor: pointer;
   font-family: "Roboto Condensed", sans-serif;
   transition: all 0.3s ease;
-  color: slategrey;
+  color: white;
+  position: absolute;
+  z-index: 9;
+  font-size: 1.2rem;
 }
 .calendar-wrapper #btnPrev:hover,
 .calendar-wrapper #btnNext:hover {
-  color: #5f75b6;
+  color: lightblue;
 }

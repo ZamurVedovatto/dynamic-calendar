@@ -16,6 +16,7 @@
 //   5 - nao deixar os meses voltarem ou irem alem das datas.
 
 export class CalendarComponent {
+  selectedDay = {}
   daysOfWeek = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"];
   monthsList = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
 
@@ -147,4 +148,9 @@ export class CalendarComponent {
     }
     this.showcurr();
   };
+
+  onSelectDay(day) {
+    this.selectedDay = day
+    console.log(this.selectedDay)
+  }
 }
